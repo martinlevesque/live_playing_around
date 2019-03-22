@@ -1,0 +1,11 @@
+<form phx-submit="exec_cmd">
+  <%= if @last_cmd do %>
+    <p>Previous cmd was <%= @last_cmd %></p>
+  <% end %>
+
+  <input type="text" name="q" value="<%= @cmd %>" placeholder="Your cmd..." />
+
+  <%= if @result do %>
+    <pre><%= @result %></pre>
+  <% end %>
+</form>

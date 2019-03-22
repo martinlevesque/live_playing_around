@@ -1,0 +1,23 @@
+<form phx-submit="add_cmd">
+  <%= if @cmds do %>
+
+    <p>Cmds (<%= length(@cmds) %>):</p>
+
+    <ul>
+      <%= for cmd <- @cmds do %>
+        <li><%= cmd %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <input type="text" name="q" value="" placeholder="Your new cmd..." />
+
+  <div>
+    <p>Results</p>
+    <%= for cmd_result <- @results do %>
+      <p><strong><%= cmd_result.cmd %></strong></p>
+      <pre style="max-height: 300px;"><%= cmd_result.result %></pre>
+    <% end %>
+  </div>
+
+</form>
