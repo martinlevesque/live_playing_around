@@ -1,9 +1,13 @@
-<form phx-submit="exec_cmd">
+<form phx-change="suggest" phx-submit="exec_cmd">
   <%= if @last_cmd do %>
     <p>Previous cmd was <%= @last_cmd %></p>
   <% end %>
 
   <input type="text" name="q" value="<%= @cmd %>" placeholder="Your cmd..." />
+
+  <%= if @suggestions do %>
+    <pre style="height: 200px; overflow-y:scroll;"><%= @suggestions %></pre>
+  <% end %>
 
   <%= if @result do %>
     <pre><%= @result %></pre>
